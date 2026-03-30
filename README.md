@@ -1,18 +1,10 @@
 # 💧 Droplet Impact Simulation
 
-A physics-based simulation and visualisation of a liquid droplet impacting a solid surface, developed using reduced-order fluid dynamics models.
 
----
+## 📌 Overview
 
-## 🚀 Key Features
-
-* 🟢 Free-fall droplet dynamics
-* 🟢 Impact detection using physics-based criteria
-* 🟢 Weber & Reynolds number evaluation
-* 🟢 Analytical + semi-empirical spreading model
-* 🟢 Realistic droplet deformation (sphere → thin film)
-* 🟢 Fully animated visualisation with annotations
-
+This project presents a physics-based simulation of droplet impact on solid surfaces, focusing on transient spreading dynamics governed by inertial, capillary, and viscous forces.
+The goal is to bridge analytical fluid mechanics with computational visualisation.
 ---
 
 ## 🎬 Simulation Preview
@@ -21,97 +13,92 @@ A physics-based simulation and visualisation of a liquid droplet impacting a sol
 
 ---
 
-## 📊 Results & Analysis
+## 📊 Results 
 
-### 📈 Diameter vs Time
+### 📈 Diameter Evolution
 
 ![Diameter vs Time](output/Diameter_vs_Time_plot.png)
 
-### 📈 Weber Number vs Maximum Diameter
+### 📈 Weber Scaling
 
 ![Weber vs Dmax](output/Webber_No_vs_Dmax_plot.png)
 
 ---
 
-## 🧪 Physics Behind the Model
+## 🧪 Physics Model
 
-This project combines simplified fluid dynamics principles:
+The simulation is based on simplified governing principles:
 
-* Impact velocity:
+* Free-fall velocity:
   v = √(2gH)
 
 * Weber number:
   We = ρv²D / σ
 
-* Maximum spreading:
+* Maximum spreading law:
   Dₘₐₓ ∝ We^(1/4)
 
 * Early-time spreading:
   R(t) ~ √(3R₀Vt)
 
-* Post-impact recoil (viscous damping)
+* Post-impact recoil modelled using exponential decay
 
 ---
+## ⚙️ Methodology
 
-## ⚙️ How to Run
-
-```bash
-pip install -r requirements.txt
-python main.py
-```
+1. Compute impact velocity from release height
+2. Detect impact time analytically
+3. Apply the early-time spreading law
+4. Introduce saturation and recoil
+5. Visualise deformation using dynamic geometry
 
 ---
 
 ## 📁 Project Structure
 
-```
-droplet-impact-simulation/
-│
-├── src/
-│   └── main.py
-├── data/
-│   └── fluids.xlsx
-├── output/
-│   ├── Droplet_Annotated.gif
-│   ├── Diameter_vs_Time_plot.png
-│   └── Webber_No_vs_Dmax_plot.png
-├── README.md
-├── requirements.txt
+```id="structure02"
+src/        → simulation code  
+data/       → fluid properties  
+results/    → generated outputs  
+docs/       → methodology notes  
 ```
 
 ---
 
-## 📌 Inputs
+## 🔬 Key Insights
 
-* Fluid properties (density, viscosity, surface tension) from `fluids.xlsx`
-* User-defined droplet release height
-
----
-
-## 📤 Outputs
-
-* Animated droplet impact visualisation (GIF)
-* Diameter evolution plot
-* Weber vs spreading diameter plot
-* Maximum spreading metrics
+* Spreading strongly depends on Weber number
+* Inertial regime dominates early impact
+* Recoil effects become visible post-maximum spread
+* Geometry transition (sphere → film) captures physical intuition
 
 ---
 
-## 🌟 Highlights
+## 🚀 How to Run
 
-* Combines **physics + simulation + visualization**
-* Designed for **engineering intuition & analysis**
-* Easily extendable to:
-
-  * different fluids
-  * impact conditions
-  * advanced splash modeling
+```bash
+pip install -r requirements.txt
+python src/main.py
+```
 
 ---
 
-## 👩‍💻 Author
+## 📌 Applications
+
+* Fuel injection systems
+* Inkjet printing
+* Surface coating processes
+* Microfluidics
+
+---
+
+## 👩‍🔬 Author
 
 **Aditi Atul Hiray**
 M.Eng Mechatronics & Cyberphysical Systems
 
 ---
+
+## ⭐ Acknowledgment
+
+Inspired by classical droplet impact studies and reduced-order analytical models in fluid mechanics.
