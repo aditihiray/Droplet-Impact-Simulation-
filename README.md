@@ -29,7 +29,7 @@ A physics-based simulation and visualisation of a liquid droplet impacting a sol
 
 ### 📈 Weber Number vs Maximum Diameter
 
-![Weber vs Dmax](output/weber_vs_dmax.png)
+![Weber vs Dmax](output/Webber_No_vs_Dmax_plot.png)
 
 ---
 
